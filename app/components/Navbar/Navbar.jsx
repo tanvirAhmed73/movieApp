@@ -6,7 +6,7 @@ import { useState } from "react";
 const Navbar = () => {
 
   return (
-    <div className="btm-nav">
+    <div className="btm-nav z-40">
       {/* home button */}
       <Link
         className={` hover:bg-blue-200 hover:text-blue-600 bg-opacity-50 bg-gray-200 backdrop-filter backdrop-blur-lg border-r-2 border-gray-500`}
@@ -29,7 +29,7 @@ const Navbar = () => {
 
       {/* admin button */}
       <Link
-        className={`hover:bg-blue-200 hover:text-blue-600 bg-opacity-50 bg-gray-200 backdrop-filter backdrop-blur-lg border-r-2 border-gray-500`}
+        className={`hover:bg-blue-200 hover:text-blue-600 bg-opacity-50 bg-gray-200 backdrop-filter backdrop-blur-lg  border-gray-500`}
         href={"/admin"}
       >
         <button>

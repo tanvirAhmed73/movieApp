@@ -4,7 +4,7 @@ const page = () => {
     { id: "2", user: "Jane Smith", comment: "Enjoyed it a lot.", movieId: "2" },
   ];
   return (
-    <div className="grid gap-6">
+    <div className="grid mx-10 gap-6">
       {commentsData.map((comment) => (
         <div
           key={comment.id}

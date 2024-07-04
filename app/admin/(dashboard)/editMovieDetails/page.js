@@ -1,8 +1,7 @@
-
 const page = () => {
   return (
     <div className="container mx-auto py-8 mb-5">
-      <h1 className="md:text-3xl text-center font-bold mb-8">Add Movie</h1>
+      <h1 className="md:text-3xl text-center font-bold mb-8">Edit Movie : Movie Title Need to Add</h1>
       <form className="max-w-lg mx-auto bg-white shadow-lg rounded-lg overflow-hidden p-6">
         <div className="mb-4">
           <label
@@ -51,7 +50,7 @@ const page = () => {
             type="submit"
             className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md focus:outline-none"
           >
-            Add Movie
+            Update Movie
           </button>
         </div>
       </form>

@@ -6,6 +6,13 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import moviePoster from "@/assets/movieposster.jpg";
 
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Pagination, Navigation } from "swiper/modules";
+
 const movieData = {
   id: "1",
   title: "Made in Heaven",
@@ -17,7 +24,7 @@ const movieData = {
   image: moviePoster,
 };
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
 
   const [comments, setComments] = useState([]);
@@ -41,34 +48,95 @@ const page = () => {
     }
   };
   return (
-    <div className="container mx-auto p-4">
-      <div className="relative rounded-lg shadow-lg overflow-hidden mb-4" style={{ height: '50vh' }}>
-        <Image
-          src={moviePoster}
-          alt="movie poster"
-          layout="fill"
-          objectFit="cover"
-          className="w-full h-full"
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-50 p-4 flex flex-col justify-end">
-          <h3 className="text-white text-2xl font-semibold">{movieData.title}</h3>
-          <p className="text-white text-sm">{movieData.description}</p>
-          <div className="flex justify-between items-center mt-2">
-            <span className="text-white text-sm">{movieData.duration}</span>
-            <span className="text-white text-sm">{movieData.year}</span>
-            <span className="text-white text-sm">{movieData.quality}</span>
-            <span className="text-white text-sm">{movieData.rating}</span>
+    <div >
+      <div style={{ height: "50vh" }}>
+        <Swiper
+          pagination={{
+            type: "fraction",
+          }}
+          navigation={true}
+          modules={[Pagination, Navigation]}
+          className="mySwiper"
+          style={{ height: "100%" }}
+        >
+          <SwiperSlide>
+            <Image src={moviePoster} alt="image" objectFit="fill"></Image>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image src={moviePoster} alt="image" objectFit="fill"></Image>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image src={moviePoster} alt="image" objectFit="fill"></Image>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image src={moviePoster} alt="image" objectFit="fill"></Image>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+
+      {/* movie details */}
+      <div className="mx-10">
+        <div className=" mt-5 mx-auto bg-gray-800 text-white shadow-lg p-6">
+          <div className="md:flex items-start space-x-4">
+            <Image className="mx-auto" src={moviePoster} alt="image" width={200} height={300}></Image>
+            <div className="flex-1">
+              <div className="flex justify-between items-center">
+                <h2 className="md:text-2xl font-bold">DRAGON PRINCE YUAN</h2>
+                <div className="flex items-center">
+                  <span className="text-yellow-400 text-lg">★★★★★</span>
+                </div>
+              </div>
+              <p className="text-gray-400 italic mb-4">
+                Dragon Prince Yuan, Yuan Zun,
+              </p>
+              <p className="mb-4">
+                A young man with his brush plunges into a chaotic world and
+                lights up the heavens. In a world where cultivators are
+                paramount, will the vermilion bird swallow the dragon, or will
+                the dragon transcend beyond all else?!
+              </p>
+              <div className="flex flex-col space-y-1">
+                <div className="text-sm">
+                  <span className="font-semibold">Type:</span> ONA
+                </div>
+                <div className="text-sm">
+                  <span className="font-semibold">Studios:</span> Motion Magic
+                </div>
+                <div className="text-sm">
+                  <span className="font-semibold">Date aired:</span> May 30,
+                  2024 to ?
+                </div>
+                <div className="text-sm">
+                  <span className="font-semibold">Status:</span> Currently
+                  Airing
+                </div>
+                <div className="text-sm">
+                  <span className="font-semibold">Genre:</span> Action,
+                  Adventure, Fantasy, Martial Arts
+                </div>
+                <div className="text-sm">
+                  <span className="font-semibold">Scores:</span>{" "}
+                </div>
+                <div className="text-sm">
+                  <span className="font-semibold">Premiered:</span> Spring 2024
+                </div>
+                <div className="text-sm">
+                  <span className="font-semibold">Duration:</span> 20 min/ep
+                </div>
+                <div className="text-sm">
+                  <span className="font-semibold">Quality:</span> HD
+                </div>
+                <div className="text-sm">
+                  <span className="font-semibold">Views:</span> 3,454
+                </div>
+              </div>
+            </div>
           </div>
-          <button
-            onClick={handleClicked}
-            className={`${clicked ? "text-red-600" : "text-white"} absolute top-4 right-4`}
-          >
-            <Heart />
-          </button>
         </div>
       </div>
 
-      <div className="bg-white p-4 rounded-lg shadow-md">
+      {/* user add comment */}
+      <div className="bg-white mx-10 p-4 rounded-lg shadow-md">
         <h4 className="text-xl font-semibold mb-2">Comments</h4>
         <div className="mb-4">
           <textarea
@@ -98,7 +166,8 @@ const page = () => {
         </div>
       </div>
     </div>
+    
   );
 };
 
-export default page;
+export default Page;
